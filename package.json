@@ -1,0 +1,19 @@
+{
+  "name": "nko3-codetag",
+  "version": "0.0.0",
+  "description": "Codetag",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nko3/codetag.git"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "codetag.nko3"
+}
