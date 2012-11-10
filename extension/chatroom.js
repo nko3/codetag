@@ -6,6 +6,13 @@ function injectSocketIO() {
     oScript.src = "http://localhost:3000/js/socket.io.js";
     document.getElementsByTagName('BODY').item(0).appendChild(oScript);
 }
+function injectJquery() {
+    var oScript = document.createElement("script");
+    oScript.language = "javascript";
+    oScript.type = "text/javascript";
+    oScript.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js";
+    document.getElementsByTagName('BODY').item(0).appendChild(oScript);
+}
 //inyecta el codigo javascript para poder enviar mensajes
 function merge() {
     var oScript = document.createElement("script");
@@ -17,15 +24,17 @@ function merge() {
     	console.log(\"message recived\");\
     	console.log(data.info);\
     	console.log(data.sender);\
-    	document.getElementById('log').value = document.getElementById('log').value +data.sender+\": \"+data.info+\"\\n\";\
+    	$('#log').val($('#log').val() +data.sender+\": \"+data.info+\"\\n\");\
+    	 var psconsole = $('#log');\
+            psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());\
     });\
-	var sendMessage = function(){\
-		var something = document.getElementById(\'caja\').value;\
-		document.getElementById(\'caja\').value = '';\
+	$('#chat').submit(function(){\
+		var something = $('#caja').val();\
+		$('#caja').val('');\
 		console.log('el mensaje es '+something);\
 		socket.emit('message', {message: something});\
 		return false;\
-	}";
+	});";
     oScript.text = newScript;
     document.getElementsByTagName('BODY').item(0).appendChild(oScript);
 }
@@ -42,14 +51,15 @@ var loadFrame = function(){
 	newdiv.style.position='fixed';
 	document.body.appendChild(newdiv);
 
-	newdiv.innerHTML="<form action='#' onSubmit='sendMessage()'>\
+	newdiv.innerHTML="<form action='#' id='chat'>\
 		<input id ='caja' type='text'>\
 		<textarea id='log' disabled style=\"margin: 0px 0px 9px; height: 244px; width: 279px;\"></textarea>\
 		</form>";
 }
 
 injectSocketIO();
+injectJquery();
 //espera un segundo mientras socketio es cargado por el servidor
-setTimeout(merge, 1000);
+setTimeout(merge, 1300);
 loadFrame();
 
