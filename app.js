@@ -35,8 +35,10 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 io.sockets.on('connection', function(socket){
-  socket.on('newUrl', function(data){
-    console.log(data);
+  socket.on('newUrl', function(data, socket){
+    var urlObj = parser(data.url);
+    var room = urlObj.host+url.pathname; //ex www.google.com + /search
+    socket.join(room);
   });
 
 });
