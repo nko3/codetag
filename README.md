@@ -1,5 +1,18 @@
 # Hello Codetag!
 
+Esto que puse fue de algunas pruebas que yo habia hecho de como podria estructurase el proyecto
+despueste de hacerle pull hacer:
+
+~~~sh
+npm install
+~~~
+
+se lanza con 
+
+~~~sh
+node app.js
+~~~
+
 ## Deploy instructions
 
 ### GitHub — [Team][2], [Repo][3]

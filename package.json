@@ -1,19 +1,14 @@
 {
-  "name": "nko3-codetag",
-  "version": "0.0.0",
-  "description": "Codetag",
-  "main": "server.js",
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:nko3/codetag.git"
+    "start": "node app"
   },
   "dependencies": {
-  },
-  "engines": {
-    "node": "0.8.x"
-  },
-  "subdomain": "codetag.nko3"
+    "express": "3.0.0rc3",
+    "ejs": "*",
+    "less-middleware": "~0.1.8",
+    "socket.io": "~0.9.11"
+  }
 }
