@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
+var parser = require('url').parse;
 
 var app = express();
 
@@ -36,12 +37,26 @@ app.get('/', routes.index);
 
 io.sockets.on('connection', function(socket){
   socket.on('newUrl', function(data){
-    console.log(data);
-    io.sockets.emit('message', { sender:"server", info: 'welcome to the #'+data.url+' channel'});
+    var urlObj = parser(data.url);
+    var channel = urlObj.host+urlObj.pathname;
+
+    socket.get('channel', function(err, oldChannel){
+      if(oldChannel){
+        socket.leave(oldChannel);
+      }
+      socket.set('channel', channel, function(){
+        socket.join(channel);
+        socket.emit('message', { sender:"server", message: 'welcome to the '+channel+' channel'});
+      });
+
+    });
+
   });
   socket.on('message', function(msg){
-    console.log(msg.message);
-    io.sockets.emit('message', {sender:socket.id, info: msg.message});
+    socket.get('channel', function(err, channel){
+      console.log(channel);
+      socket.broadcast.to(channel).emit('message', {sender:socket.id, message: msg.message});
+    });
   });
 
 });

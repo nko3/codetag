@@ -6,6 +6,7 @@ function injectSocketIO() {
     oScript.src = "http://localhost:3000/js/socket.io.js";
     document.getElementsByTagName('BODY').item(0).appendChild(oScript);
 }
+
 function injectJquery() {
     var oScript = document.createElement("script");
     oScript.language = "javascript";
@@ -13,6 +14,7 @@ function injectJquery() {
     oScript.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js";
     document.getElementsByTagName('BODY').item(0).appendChild(oScript);
 }
+
 //inyecta el codigo javascript para poder enviar mensajes
 function merge() {
     var oScript = document.createElement("script");
@@ -21,18 +23,17 @@ function merge() {
     var newScript = "var socket = io.connect('http://localhost:3000');\
     socket.emit('newUrl', {url: document.location.href});\
     socket.on('message',function(data){\
-    	console.log(\"message recived\");\
-    	console.log(data.info);\
-    	console.log(data.sender);\
-    	$('#log').val($('#log').val() +data.sender+\": \"+data.info+\"\\n\");\
-    	 var psconsole = $('#log');\
-            psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());\
+    	$('#log').val($('#log').val() +data.sender+\": \"+data.message+\"\\n\");\
+    	var psconsole = $('#log');\
+      psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());\
     });\
 	$('#chat').submit(function(){\
-		var something = $('#caja').val();\
-		$('#caja').val('');\
-		console.log('el mensaje es '+something);\
-		socket.emit('message', {message: something});\
+		var inputText = $('#chatBox').val();\
+    $('#log').val($('#log').val() +\"You: \"+inputText+\"\\n\");\
+    var psconsole = $('#log');\
+    psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());\
+		$('#chatBox').val('');\
+		socket.emit('message', {message: inputText});\
 		return false;\
 	});";
     oScript.text = newScript;
@@ -52,10 +53,10 @@ var loadFrame = function(){
 	document.body.appendChild(newdiv);
 
 	newdiv.innerHTML="<form action='#' id='chat'>\
-		<input id ='caja' type='text'>\
+		<input id ='chatBox' type='text'>\
 		<textarea id='log' disabled style=\"margin: 0px 0px 9px; height: 244px; width: 279px;\"></textarea>\
 		</form>";
-}
+};
 
 injectSocketIO();
 injectJquery();
