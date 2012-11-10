@@ -1,11 +1,10 @@
 {
   "name": "Chat Extension",
-  "version": "1.9.2",
+  "version": "1.9.5",
   "manifest_version": 3,
   "description": "Chat over any site with people there at the same time",
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "chat.html"
+    "default_icon": "icon.png"
   },
   "background": {
     "scripts": ["background.js"]
