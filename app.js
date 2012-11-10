@@ -35,10 +35,13 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 io.sockets.on('connection', function(socket){
-  socket.on('newUrl', function(data, socket){
-    var urlObj = parser(data.url);
-    var room = urlObj.host+url.pathname; //ex www.google.com + /search
-    socket.join(room);
+  socket.on('newUrl', function(data){
+    console.log(data);
+    io.sockets.emit('message', { sender:"server", info: 'welcome to the #'+data.url+' channel'});
+  });
+  socket.on('message', function(msg){
+    console.log(msg.message);
+    io.sockets.emit('message', {sender:socket.id, info: msg.message});
   });
 
 });
