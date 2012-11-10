@@ -1,10 +1,9 @@
-var socket = io.connect('http://localhost:3000');
-
 document.addEventListener('DOMContentLoaded', function () {
-  chrome.tabs.getSelected(undefined, function(tab){
-    console.log(tab.url);
-    socket.emit('newUrl', {
-      url: tab.url
-    });
+  chrome.tabs.getSelected(undefined, function(tab){ 
+  	chrome.tabs.executeScript(null,{file:"socket.io.js"}); //cargo los js en el ambito de la pagina
+    chrome.tabs.executeScript(null,{file:"chatroom.js"}); 
   });
 });
+
+var port = chrome.extension.connect();
+

@@ -8,6 +8,9 @@
     "default_popup": "chat.html"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "https://*/*",
+    "http://*/*",
+    "<all_urls>"
   ]
 }
