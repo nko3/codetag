@@ -1,3 +1,3 @@
 exports.getRoom = function(data){
-  console.log(data);
+  console.log(data.url);
 };

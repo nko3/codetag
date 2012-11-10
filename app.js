@@ -35,7 +35,10 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 io.sockets.on('connection', function(socket){
-  socket.on('newUrl', server.getRoom);
+  socket.on('newUrl', function(data){
+    console.log(data);
+  });
+
 });
 
 httpServer.listen(app.get('port'), function(){
