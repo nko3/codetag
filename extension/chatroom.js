@@ -3,7 +3,7 @@ function injectSocketIO() {
     var oScript = document.createElement("script");
     oScript.language = "javascript";
     oScript.type = "text/javascript";
-    oScript.src = "http://localhost:3000/js/socket.io.js";
+    oScript.src = "http://codechat.jit.su/js/socket.io.js";
     document.getElementsByTagName('BODY').item(0).appendChild(oScript);
 }
 
@@ -20,7 +20,7 @@ function merge() {
     var oScript = document.createElement("script");
     oScript.language = "javascript";
     oScript.type = "text/javascript";
-    var newScript = "var socket = io.connect('http://localhost:3000');\
+    var newScript = "var socket = io.connect('http://codechat.jit.su');\
     socket.emit('newUrl', {url: document.location.href});\
     socket.on('message',function(data){\
     	$('#log').val($('#log').val() +data.sender+\": \"+data.message+\"\\n\");\

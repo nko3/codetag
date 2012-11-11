@@ -14,7 +14,6 @@ var app = express();
 var httpServer = http.createServer(app);
 
 var io = require('socket.io').listen(httpServer);
-var server = require('./server');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);

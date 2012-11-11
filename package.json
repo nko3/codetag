@@ -1,14 +1,18 @@
 {
   "name": "ChatExtension",
-  "version": "0.0.1",
+  "version": "0.0.1-2",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "app.js"
   },
   "dependencies": {
     "express": "3.0.0rc3",
     "ejs": "*",
     "less-middleware": "~0.1.8",
     "socket.io": "~0.9.11"
+  },
+  "subdomain": "codechat",
+  "engines": {
+    "node": "0.8.x"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "Chat Extension",
-  "version": "1.9.14",
+  "version": "1.9.15",
   "manifest_version": 3,
   "description": "Chat over any site with people there at the same time",
   "browser_action": {
