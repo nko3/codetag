@@ -35,7 +35,13 @@ function merge() {
 		$('#chatBox').val('');\
 		socket.emit('message', {message: inputText});\
 		return false;\
-	});";
+	});\
+    $('#close').click(function(){\
+        socket.socket.disconnect();\
+        $('#chatSite-box').remove();\
+        return false;\
+    });\
+    ";
     oScript.text = newScript;
     document.getElementsByTagName('BODY').item(0).appendChild(oScript);
 }
@@ -44,6 +50,7 @@ function merge() {
 var loadFrame = function(){
 
 	var newdiv = document.createElement('div');
+    newdiv.id = "chatSite-box";
 	newdiv.style.width = '300px';
 	newdiv.style.height = '300px';
 	newdiv.style.background = '#00C';
@@ -52,7 +59,8 @@ var loadFrame = function(){
 	newdiv.style.position='fixed';
 	document.body.appendChild(newdiv);
 
-	newdiv.innerHTML="<form action='#' id='chat'>\
+	newdiv.innerHTML="<a id='close' href='#'>X</a>\
+    <form action='#' id='chat'>\
 		<input id ='chatBox' type='text'>\
 		<textarea id='log' disabled style=\"margin: 0px 0px 9px; height: 244px; width: 279px;\"></textarea>\
 		</form>";
