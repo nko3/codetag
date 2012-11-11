@@ -1,10 +1,13 @@
 {
   "name": "Codechat",
-  "version": "2.1.0",
-  "manifest_version": 4,
+  "version": "2.1.1",
+  "manifest_version": 5,
   "description": "Chat over any site with people there at the same time",
   "browser_action": {
     "default_icon": "icon.png"
+  },
+  "icons":{
+    "128": "icon.png"
   },
   "background": {
     "scripts": ["background.js"]
