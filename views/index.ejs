@@ -2,10 +2,55 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/bootstrap.css' />
+    <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span8">
+            <div class="span1"></div><!--/span-->
+            <div class="span10">
+              <h1>CodeChat</h1>
+              <p>Brings chat to <b>ALL</b> internet</p>
+              <iframe width="560" height="315" src="http://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+              <div class="row-fluid">
+              <h2>How it works!</h2>
+              <p>
+                Connect with people viewing the same sites that you do,
+
+                This allows you to chat on every website in the internet with other people that are currently in that same site.
+              </p>
+            </div><!--/span-->
+            <div class="span1"></div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+        <div class="span4">
+          <div class="well sidebar-nav">
+            <p>
+              <a class="btn btn-warning btn-large btn-huge" href="https://chrome.google.com/webstore/detail/chat-extension/lokheaoidpgfjihnhjhnfpjeojbkhdgi">Try it now!</a>
+              only for Chrome Browser
+            </p>
+            <iframe src="http://nodeknockout.com/iframe/codetag" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>
+            <iframe allowtransparency="true" frameborder="0" scrolling="no"
+            src="https://platform.twitter.com/widgets/tweet_button.html"
+            style="width:130px; height:20px;"></iframe>
+            <ul class="nav nav-list">
+              <li class="nav-header">Top Five sites</li>
+              <li><a href="#">Site 1</a></li>
+              <li><a href="#">Site 2</a></li>
+              <li><a href="#">Site 2</a></li>
+              <li><a href="#">Site 3</a></li>
+              <li><a href="#">Site 5</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
   </body>
 </html>
