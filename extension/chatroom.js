@@ -12,20 +12,6 @@ var injectCSS = function(css){
   fileref.setAttribute("href", css);
   document.head.appendChild(fileref);
 };
-var injectClient = function(){
-    setTimeout(function(){
-        if (typeof(io)=="undefined"){
-            injectClient();
-        }else{
-            injectJS("http://codechat.jit.su/js/client.js");
-        }
-    }, 1000);
-};
-var loadJS = function(){
-    injectJS("http://codechat.jit.su/js/socket.io.js");
-    injectJS("http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
-    injectClient();
-};
 
 //carga el div con el chat
 var loadFrame = function(){
@@ -34,7 +20,7 @@ var loadFrame = function(){
     newdiv.id = "chatSite-box";
     document.body.appendChild(newdiv);
     
-    newdiv.innerHTML="<div id='chatHeader'><b>CodeChat - chat for all</b>\
+    newdiv.innerHTML="<div id='chatHeader'><div id='chat-title'><b>CodeChat - chat for all</b></div>\
     <div id='chat-options'><a id='minimize' href='#' title='minimize'>_</a> <a id='close' href='#' title='close this chat'>X</a></div></div>\
     <form action='#' id='chat'>\
         <textarea id='log' disabled></textarea>\
@@ -48,8 +34,10 @@ var loadFrame = function(){
     }
     var socketiojs = injectJS("http://codechat.jit.su/js/socket.io.js",function(){
         injectJS("http://codechat.jit.su/js/client.js");
+        //injectJS("http://localhost:3000/js/client.js");
     });
     var jquery = injectJS("http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
-    injectCSS("http://codechat.jit.su/stylesheets/client.css");
+        injectCSS("http://codechat.jit.su/stylesheets/client.css");
+        //injectCSS("http://localhost:3000/stylesheets/client.css");
     loadFrame();
 })();
