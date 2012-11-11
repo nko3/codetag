@@ -33,9 +33,9 @@ var loadFrame = function(){
         return;
     }
     var socketiojs = injectJS("http://codechat.jit.su/js/socket.io.js",function(){
-        injectJS("http://localhost:3000/js/client.js");
+        injectJS("http://codechat.jit.su/js/client.js");
     });
     var jquery = injectJS("http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
-    injectCSS("http://localhost:3000/stylesheets/client.css");
+    injectCSS("http://codechat.jit.su/stylesheets/client.css");
     loadFrame();
 })();
