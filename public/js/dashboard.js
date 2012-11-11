@@ -32,5 +32,5 @@ socket.on('update channels', function(channels){
     } else {
         $('#top-sites').append('<li>No-one using this chat!!</li>');
     }
-    setTimeout(function(){socket.emit('get channels');}, 3000);
+    setTimeout(function(){socket.emit('get channels');}, 5000);
 });
