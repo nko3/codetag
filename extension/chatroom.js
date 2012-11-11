@@ -29,6 +29,9 @@ var loadFrame = function(){
 };
 
 (function(){
+    if(document.getElementById('chatHeader')){
+        return;
+    }
     var socketiojs = injectJS("http://codechat.jit.su/js/socket.io.js",function(){
         injectJS("http://localhost:3000/js/client.js");
     });
