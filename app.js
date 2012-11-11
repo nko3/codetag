@@ -67,6 +67,12 @@ io.sockets.on('connection', function(socket){
     });
   });
 
+  socket.on('get channels', function(){
+    var channels = io.sockets.manager.rooms;
+    socket.emit('update channels', channels);
+    socket.disconnect();
+  });
+
 });
 
 httpServer.listen(app.get('port'), function(){
