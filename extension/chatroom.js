@@ -21,7 +21,7 @@ var loadFrame = function(){
     document.body.appendChild(newdiv);
     
     newdiv.innerHTML="<div id='chatHeader'><b>CodeChat - chat for all</b>\
-        <div id='chat-options'><a id='minimize' href='#' title='minimize'>_</a> <a id='close' href='#' title='close this chat'>X</a></div></div>\
+    <div id='chat-options'><a id='minimize' href='#' title='minimize'>_</a> <a id='close' href='#' title='close this chat'>X</a></div></div>\
     <form action='#' id='chat'>\
         <textarea id='log' disabled></textarea>\
         <textarea id ='chatBox' disabled></textarea>\

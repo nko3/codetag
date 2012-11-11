@@ -35,6 +35,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 io.sockets.on('connection', function(socket){
+  socket.nickname=socket.id;
   socket.on('newUrl', function(data){
     var urlObj = parser(data.url);
     var channel = urlObj.host+urlObj.pathname;
@@ -52,9 +53,17 @@ io.sockets.on('connection', function(socket){
 
   });
   socket.on('message', function(msg){
+    var command = msg.message.trim().match('^>([a-zA-Z]+):([a-zA-Z0-9-_]+)$');
+    if(command){
+      if(command[1]=="nick"){
+        socket.nickname = command[2];
+        socket.emit('message', { sender:"server", message: 'you have changed your nickname to '+socket.nickname});
+        return;
+      }
+    }
     socket.get('channel', function(err, channel){
       console.log(channel);
-      socket.broadcast.to(channel).emit('message', {sender:socket.id, message: msg.message});
+      socket.broadcast.to(channel).emit('message', {sender:socket.nickname, message: msg.message});
     });
   });
 
