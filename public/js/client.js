@@ -6,15 +6,16 @@ socket.on('message',function(data){
 	var psconsole = $('#log');
     psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());
 });
-
-$('#chat').submit(function(){
-	var inputText = $('#chatBox').val();
-    $('#log').val($('#log').val() +"You: "+inputText+"\n");
-    var psconsole = $('#log');
-    psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());
-	$('#chatBox').val('');
-	socket.emit('message', {message: inputText});
-	return false;
+$('#chatBox').keypress(function(event){
+    if(event.which == 13){
+    	var inputText = $('#chatBox').val();
+        $('#log').val($('#log').val() +"You: "+inputText+"\n");
+        var psconsole = $('#log');
+        psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());
+    	$('#chatBox').val('');
+    	socket.emit('message', {message: inputText});
+    	return false;
+    }
 });
 
 $('#close').click(function(){
