@@ -20,7 +20,8 @@ var loadFrame = function(){
     newdiv.id = "chatSite-box";
     document.body.appendChild(newdiv);
     
-    newdiv.innerHTML="<div id='chatHeader'><b>CodeChat - chat for all</b><a id='close' href='#'>X</a></div>\
+    newdiv.innerHTML="<div id='chatHeader'><b>CodeChat - chat for all</b>\
+        <div id='chat-options'><a id='minimize' href='#'>_</a> <a id='close' href='#'>X</a></div></div>\
     <form action='#' id='chat'>\
         <textarea id='log' disabled></textarea>\
         <textarea id ='chatBox' disabled></textarea>\

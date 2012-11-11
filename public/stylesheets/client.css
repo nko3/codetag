@@ -32,7 +32,7 @@
 	border: 1px solid #999;
 	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	color: #222;
-	font-size: 12px;
+	font-size: 13px;
 }
 #chatBox:focus {
 	border: 2px solid #9C3;
@@ -44,9 +44,15 @@
 	height: 16px;
 	color: white;
 }
-#chatHeader a {
+#chat-options {
 	float:right;
+}
+#chat-options a {
+	text-decoration: none;
+	font-weight: bold;
 	color: white;
+	font-size: 12px;
+	margin-left: 3px;
 }
 #chat {
 	margin: 0;  

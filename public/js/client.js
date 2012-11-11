@@ -23,5 +23,15 @@ $('#close').click(function(){
     $('#chatSite-box').remove();
     return false;
 });
+$('#minimize').click(function(){
+    var chatSite= $('#chatSite-box');
+    console.log(chatSite.height());
+    if(chatSite.height()!=20){
+        chatSite.height("20px");
+    }else{
+        chatSite.height("320px");
+    }
+    return false;
+});
 
 $('#chatBox').removeAttr("disabled");
