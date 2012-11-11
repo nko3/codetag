@@ -72,6 +72,17 @@ io.sockets.on('connection', function(socket){
     socket.emit('update channels', channels);
   });
 
+  socket.on('get tab users', function(info){
+    console.log(info);
+    if(info.status === 'loading'){
+      var urlObj = parser(info.url);
+      var channelUsers = io.sockets.manager.rooms[urlObj.host+urlObj.pathname];
+      channelUsers.tabId = info.tabId;
+      socket.emit('tab users', channelUsers);
+      console.log(channelUsers);
+    }
+  });
+
 });
 
 httpServer.listen(app.get('port'), function(){

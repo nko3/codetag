@@ -26,7 +26,7 @@ socket.on('update channels', function(channels){
 
         for(var i=0 ; i<limit ; i++){
             $('#top-sites')
-                .append('<li><a href=\"http://'+topSites[i].url+'\">('+topSites[i].users+') http:/'+topSites[i].url+'</a></li>');
+                .append('<li><a target=\”_blank\” href=\"http://'+topSites[i].url+'\">('+topSites[i].users+') http:/'+topSites[i].url+'</a></li>');
         }
 
     } else {
