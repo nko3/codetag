@@ -16,7 +16,11 @@ socket.on('update channels', function(channels){
 
     if(topSites.length > 0){
         // sort them with underscore
-        topSites = _.sortBy(topSites, function(site){ return site.users; });
+        topSites = topSites.sort(function(siteA, siteB){
+            if (siteA.users < siteB.users) return 1;
+            if (siteB.users < siteA.users) return -1;
+            return 0;
+        });
 
         var limit = (topSites.length<10) ? topSites.length : 10;
 
