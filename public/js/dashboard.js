@@ -3,6 +3,7 @@ var socket = io.connect('http://codechat.jit.su');
 socket.emit('get channels');
 
 socket.on('update channels', function(channels){
+    $('#top-sites').empty();
     var topSites = [];
     for(var channel in channels){
         if(channel){ //evaluates if channel name is not empty
