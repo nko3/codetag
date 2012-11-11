@@ -4,14 +4,28 @@ var injectJS = function(script, callback){
     oScript.src = script;
     document.body.appendChild(oScript);
     oScript.onload = callback;
-}
+};
 var injectCSS = function(css){
   var fileref=document.createElement("link");
   fileref.setAttribute("rel", "stylesheet");
   fileref.setAttribute("type", "text/css");
   fileref.setAttribute("href", css);
-  document.head.appendChild(fileref)
-}
+  document.head.appendChild(fileref);
+};
+var injectClient = function(){
+    setTimeout(function(){
+        if (typeof(io)=="undefined"){
+            injectClient();
+        }else{
+            injectJS("http://codechat.jit.su/js/client.js");
+        }
+    }, 1000);
+};
+var loadJS = function(){
+    injectJS("http://codechat.jit.su/js/socket.io.js");
+    injectJS("http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
+    injectClient();
+};
 
 //carga el div con el chat
 var loadFrame = function(){
