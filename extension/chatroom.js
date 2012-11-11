@@ -11,5 +11,4 @@ var injectJS = function(script){
     }
     injectJS("http://codechat.jit.su/js/loader.js");
     //injectJS("http://localhost:3000/js/loader.js");
-    
 })();
