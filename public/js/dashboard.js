@@ -17,7 +17,7 @@ socket.on('update channels', function(channels){
         // sort them with underscore
         topSites = _.sortBy(topSites, function(site){ return site.users; });
 
-        var limit = (topSites.length<5) ? topSites.length : 5;
+        var limit = (topSites.length<10) ? topSites.length : 10;
 
         for(var i=0 ; i<limit ; i++){
             $('#top-sites')
@@ -27,4 +27,5 @@ socket.on('update channels', function(channels){
     } else {
         $('#top-sites').append('<li>No-one using this chat!!</li>');
     }
+    setTimeout(function(){socket.emit('get channels');}, 3000);
 });
