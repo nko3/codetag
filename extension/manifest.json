@@ -1,6 +1,6 @@
 {
   "name": "Codechat",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "manifest_version": 5,
   "description": "Chat over any site with people there at the same time",
   "browser_action": {
