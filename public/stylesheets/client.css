@@ -39,10 +39,11 @@
 }
 #chatHeader {
 	padding: 4px 8px;
-	background-color: #000;
+	background: #000 url("http://localhost:3000/img/chat_bubble_mini.png") 4px 0px no-repeat;
 	width: 209px;
 	height: 16px;
 	color: white;
+	text-align: center;
 }
 #chat-options {
 	float:right;
@@ -53,6 +54,7 @@
 	color: white;
 	font-size: 12px;
 	margin-left: 3px;
+	padding-bottom: 2px;
 }
 #chat {
 	margin: 0;  
